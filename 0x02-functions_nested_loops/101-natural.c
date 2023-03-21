@@ -2,6 +2,7 @@
 
 /**
  *main _ prints all multiples of 3 and 5
+ *Description: printing multiples of 3 and 5 till 1024
  *Return: Always 0 (successful);
  */
 
