@@ -5,7 +5,7 @@
  * square root of a number
  * @n: input number
  * @c: condition
- * Return: square root or -1 
+ * Return: square root or -1
  */
 int power_operation(int n, int c)
 {
