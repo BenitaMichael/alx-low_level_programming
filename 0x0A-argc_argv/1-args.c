@@ -11,6 +11,6 @@
 
 int main(int agrc, char *agrv[])
 {
-	printf("%d\n", agrc);
+	printf("%d\n", agrc -1)
 	return (0);
 }
