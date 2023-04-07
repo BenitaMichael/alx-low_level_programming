@@ -11,12 +11,6 @@
 
 int main(int agrc, char *agrv[])
 {
-	int i;
-
-	while (i < agrc)
-	{
-		printf("%d\n", agrv[i]);
-		i++
-	}
+	printf("%d\n", agrc);
 	return (0);
 }
