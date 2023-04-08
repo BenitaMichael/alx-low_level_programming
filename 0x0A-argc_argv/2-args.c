@@ -11,7 +11,7 @@
 
 int main(int agrc, char *agrv[])
 {
-	int i;
+	int i = 0;
 
 	while (i < agrc)
 	{
