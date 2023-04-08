@@ -9,14 +9,13 @@
  * Return: (0) if successful
  */
 
-int main(int agrc, char *agrv[])
+int main(int argc, char *argv[])
 {
-	int i = 0;
+	int i;
 
-	while (i < agrc)
+	for (i = 0; i < argc; i++)
 	{
-		printf("%s\n", agrv[i]);
-			i++;
+		printf("%s\n", argv[i]);
 	}
 	return (0);
 }
