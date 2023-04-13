@@ -1,11 +1,13 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <ctype.h>
 
 /**
- * _is_zero - a function thatdetermines if any number is zero
+ * _is_zero - function that determines if any number is zero
  * @argv: argument vector
  */
+
 void _is_zero(char *argv[])
 {
 	int i, isn1 = 1, isn2 = 1;
@@ -34,16 +36,17 @@ void _is_zero(char *argv[])
 /**
  * _initialize_array - function that set memery to zero in a new array
  * @ar: character array
- * @lenar: length of the char array
+ * @lar: length of the char array
  * Return: pointer of a char array
  */
-char *_initialize_array(char *ar, int lenar)
+
+char *_initialize_array(char *ar, int lar)
 {
 	int i = 0;
 
-	for (i = 0; i < lenar; i++)
+	for (i = 0; i < lar; i++)
 		ar[i] = '0';
-	ar[lenar] = '\0';
+	ar[lar] = '\0';
 	return (ar);
 }
 
@@ -51,15 +54,16 @@ char *_initialize_array(char *ar, int lenar)
  * _checknum - function that determines length of the number
  * and checks if number is in base 10
  * @argv: arguments vector
- * @nr: number of row of the array
+ * @n: row of the array
  * Return: length of the number
  */
-int _checknum(char *argv[], int nr)
+
+int _checknum(char *argv[], int n)
 {
 	int ln;
 
-	for (ln = 0; argv[nr][ln]; ln++)
-		if (!isdigit(argv[nr][ln]))
+	for (ln = 0; argv[n][ln]; ln++)
+		if (!isdigit(argv[n][ln]))
 		{
 			printf("Error\n");
 			exit(98);
@@ -74,6 +78,7 @@ int _checknum(char *argv[], int nr)
  * @argv: arguments vector
  * Return: (0) if successful
  */
+
 int main(int argc, char *argv[])
 {
 	int ln1, ln2, lnout, add, addl, i, j, k, ca;
