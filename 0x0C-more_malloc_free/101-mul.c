@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
  * _is_zero - a function thatdetermines if any number is zero
