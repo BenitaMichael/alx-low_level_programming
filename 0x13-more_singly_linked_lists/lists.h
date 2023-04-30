@@ -6,14 +6,14 @@
 
 /**
  * struct listint_s - singly linked list
- * @no: integer
+ * @n: number
  * @next: points to the next node
  * Description: singly linked list node structure
  */
 
 typedef struct listint_s
 {
-	int no;
+	int n;
 	struct listint_s *next;
 } listint_t;
 
