@@ -117,7 +117,7 @@ void printing_version(unsigned char *elfptr)
 
 	if(elfptr[EI_VERSION] == EV_CURRENT)
 	{
-		printf(" (current)\n";
+		printf(" (current)\n");
 	}
 	else
 		printf("\n");
