@@ -115,15 +115,12 @@ void printing_version(unsigned char *elfptr)
 	printf("  Version:                           %d",
 	       elfptr[EI_VERSION]);
 
-	switch (elfptr[EI_VERSION])
+	if(elfptr[EI_VERSION] = EV_CURRENT)
 	{
-	case EV_CURRENT:
-		printf(" (current)\n");
-		break;
-	default:
-		printf("\n");
-		break;
+		printf(" (current)\n";
 	}
+	else
+		printf("\n");
 }
 
 /**
