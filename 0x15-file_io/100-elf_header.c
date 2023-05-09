@@ -9,7 +9,6 @@ void printing_os(unsigned char *elfptr);
 void printing_abiversion(unsigned char *elfptr);
 void printing_type(unsigned int elf_type, unsigned char *elfptr);
 void printing_entry_point(unsigned long int elf_entry, unsigned char *elfptr);
-void closing_elf_file(int elf_file);
 
 /**
  * checking_elf - function that checks if a file is an ELF file
@@ -23,8 +22,8 @@ void checking_elf(unsigned char *elfptr)
 
 	for (i = 0; i < 4; i++)
 	{
-		if (elfptr[i] != 127 && elfptr[i] != 'E'
-		 && elfptr[i] != 'L' && elfptr[i] != 'F')
+		if (elfptr[i] != 127 && elfptr[i] != 'E' &&
+		elfptr[i] != 'L' && elfptr[i] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -116,9 +115,9 @@ void printing_version(unsigned char *elfptr)
 	printf("  Version:                           %d",
 	       elfptr[EI_VERSION]);
 
-	if (elfptr[EI_VERSION] == EV_CURRENT)
+	if(elfptr[EI_VERSION] == EV_CURRENT)
 	{
-		printf(" (current)\n");
+		printf(" (current)\n";
 	}
 	else
 		printf("\n");
@@ -242,22 +241,6 @@ void printing_entry(unsigned long int elf_entry, unsigned char *elfptr)
 }
 
 /**
- * closing_elf_fie - function that closes an ELF file
- * @elf_file: The file descriptor of the ELF file
- * Description: If the file cannot be closed - exit code 98
- */
-
-void closing_elf_file(int elf_file)
-{
-	if (close(elf_file) == -1)
-	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't close fd %d\n", elf);
-		exit(98);
-	}
-}
-
-/**
  * main - program that displays the information contained
  * in theELF header at the start of an ELF file
  * @argc: The number of arguments supplied to the program
@@ -281,7 +264,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (!header)
 	{
-		closing_elf_file(o);
+		close(o);
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
@@ -289,7 +272,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (r == -1)
 	{
 		free(header);
-		closing_elf_file(o);
+		close(o);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
@@ -305,6 +288,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	printing_entry(header->e_entry, header->e_ident);
 
 	free(header);
-	closing_elf_file(o);
+	close(o);
 	return (0);
 }
