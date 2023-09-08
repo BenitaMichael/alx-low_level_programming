@@ -1,19 +1,19 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_set - function that adds an element to the
- * hash table
- * @ht: A pointer to the hash table
- * @key: The key to add - cannot be an empty string
- * @value: The value associated with key
- * Return: If successful  (1), if not (0)
+ * hash_table_set - function that adds an element to the hash table
+ * @ht: pointer to the hash table
+ * @key: the key to add
+ * @value: value associated with key
+ * Return: If error (0) else returns (1)
  */
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *new;
-    unsigned long int i, ind;
 	char *value_copy;
+	unsigned long int i, index;
+
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
 
@@ -21,8 +21,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (value_copy == NULL)
 		return (0);
 
-	ind = key_ind((const unsigned char *)key, ht->size);
-	for (i = ind; ht->array[i]; i++)
+	index = key_index((const unsigned char *)key, ht->size);
+	for (i = index; ht->array[i]; i++)
 	{
 		if (strcmp(ht->array[i]->key, key) == 0)
 		{
@@ -45,8 +45,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	new->value = value_copy;
-	new->next = ht->array[ind];
-	ht->array[ind] = new;
+	new->next = ht->array[index];
+	ht->array[index] = new;
 
 	return (1);
 }
