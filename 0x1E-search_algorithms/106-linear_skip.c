@@ -9,7 +9,8 @@
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	size_t i, step, a = 0, b = 0;
+	size_t i;
+	size_t step, a = 0, b = 0;
 	skiplist_t *node, *next;
 
 	if (!list)

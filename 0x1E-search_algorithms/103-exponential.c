@@ -19,8 +19,8 @@ void print_array(int *array, size_t l, size_t r)
 }
 
 /**
- * binary_search_index - Searches a value in a sorted array using \
- * a binary search.
+ * binary_search_index - Searches a value in a sorted array using
+ * a binary search
  * @array: The array to search in
  * @l: The left index of the array
  * @r: The right index of the array
@@ -29,25 +29,25 @@ void print_array(int *array, size_t l, size_t r)
  */
 int binary_search_index(int *array, size_t l, size_t r, int value)
 {
-	size_t m;
+	size_t n;
 
 	if (!array)
 		return (-1);
 	print_array(array, l, r);
-	m = l + ((r - l) / 2);
+	n = l + ((r - l) / 2);
 	if (l == r)
-		return (*(array + m) == value ? (int)m : -1);
-	if (value < *(array + m))
+		return (*(array + n) == value ? (int)n : -1);
+	if (value < *(array + n))
 	{
-		return (binary_search_index(array, l, m - 1, value));
+		return (binary_search_index(array, l, n - 1, value));
 	}
-	else if (value == *(array + m))
+	else if (value == *(array + n))
 	{
-		return ((int)m);
+		return ((int)n);
 	}
 	else
 	{
-		return (binary_search_index(array, m + 1, r, value));
+		return (binary_search_index(array, n + 1, r, value));
 	}
 }
 

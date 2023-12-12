@@ -27,7 +27,8 @@ listint_t *get_next(listint_t *node, size_t n)
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t step, a = 0, b = 0;
+	size_t step;
+	size_t a = 0, b = 0;
 	listint_t *node, *next;
 
 	if (!list)
